@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/css/style.css">
+    <title>Rechercher un utilisateur GitHub</title>
+</head>
+<body>
+    <header>
+        <h1>Rechercher un utilisateur GitHub</h1>
+    </header>
+    <section>
+        <form>
+            <label for="username">Entrez le pseudo de l'utilisateur GitHub</label>
+            <input type="text" name="username" id="username">
+        </form>
+        <div id="card">
+            <picture>
+                <source srcset="">
+                <img src="https://i.pravatar.cc/150?img=2" alt="">
+            </picture>
+            <hr>
+            <h2></h2>
+            <p>Followers : <span id="follower"></span></p>
+            <p>Repos : <span id="repository"></span></p>
+            <p><span id="job"></span></p>
+        </div>
+    </section>
+    
+</body>
+</html>
