@@ -15,7 +15,9 @@ const url = `https://api.github.com/users/`;
 
 // Listening user's input
 $input.addEventListener("input", () =>{
+    
     if($input.value !== ""){
+
         const searchUser = new App($input, $source, $img, $h2, $follower, $repo, $job, url);
         searchUser.ajax();
         
