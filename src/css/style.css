@@ -27,6 +27,11 @@ form, input{
     width: 100%;
 }
 
+label{
+    position: absolute;
+    margin: 0 0 -2.5em 1em;
+}
+
 input{
     border: 1px solid #bbb;
     padding: .5em;
