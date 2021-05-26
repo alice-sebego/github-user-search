@@ -11,15 +11,11 @@ export default class App {
         this.url = url;
     }
 
-    get user(){
-        return this.input.value;
-    }
-
     async ajax(){
         try{
-            const response = await fetch(this.url + this.user);
+            const response = await fetch(this.url + this.input.value);
             if(response.ok){
-                let responseJson = response.json();
+                let responseJson = await response.json();
                 this.name.innerHTML = responseJson.name;
                 this.source.srcset = responseJson.avatar_url;
                 this.img.src = responseJson.avatar_url;
@@ -30,9 +26,7 @@ export default class App {
             } 
         } catch(error){
             console.log(error)
-
         }
     }
-
-   
+  
 }

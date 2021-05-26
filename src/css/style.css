@@ -27,11 +27,6 @@ form, input{
     width: 100%;
 }
 
-label{
-    position: absolute;
-    margin: 0 0 -2.5em 1em;
-}
-
 input{
     border: 1px solid #bbb;
     padding: .5em;
@@ -39,7 +34,7 @@ input{
 }
 
 #card{
-    margin-top: 5vh;
+    margin-top: 10vh;
     padding: 5vh 4vw;
     background-color: #eee;
     display: flex;
@@ -48,7 +43,7 @@ input{
 }
 
 picture{
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
 }
 
 hr{
@@ -58,9 +53,9 @@ hr{
 
 img{
     display: block;
-    margin: -8vh auto;
+    margin: -8vh auto 1vh;
     border: 1px solid #bbb;
-    width: 65%;
+    width: 35%;
     border-radius: 50%;
     box-shadow: .1em .1em .4em rgba(0, 0, 0, 0.4);
 }
