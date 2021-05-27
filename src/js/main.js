@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import App from './app.js';
 import * as util from './util.js';
 
