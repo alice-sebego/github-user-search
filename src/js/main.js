@@ -10,6 +10,9 @@ const $h2 = document.querySelector("h2");
 const $follower = document.querySelector("#follower");
 const $repo = document.querySelector("#repository");
 const $job = document.querySelector("#job");
+const $button = document.querySelector("#card > button");
+console.log($button);
+console.log("Hello world !!!");
 const $year = document.querySelector("#year");
 
 const url = `https://api.github.com/users/`;
@@ -19,7 +22,7 @@ $input.addEventListener("input", () =>{
     
     if($input.value !== ""){
 
-        const searchUser = new App($input, $source, $img, $h2, $follower, $repo, $job, url);
+        const searchUser = new App($input, $source, $img, $h2, $follower, $repo, $job, $button, url);
         searchUser.ajax();
         
     }

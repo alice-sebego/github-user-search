@@ -1,6 +1,6 @@
 export default class App {
 
-    constructor(input, source, img, name, follower, repo, job, url){
+    constructor(input, source, img, name, follower, repo, job, button, url){
         this.input = input;
         this.source = source;
         this.img = img;
@@ -8,6 +8,7 @@ export default class App {
         this.follower = follower;
         this.repo = repo;
         this.job = job;
+        this.button = button;
         this.url = url;
     }
 
@@ -16,6 +17,7 @@ export default class App {
             const response = await fetch(this.url + this.input.value);
             if(response.ok){
                 let responseJson = await response.json();
+                
                 this.name.innerHTML = responseJson.name;
                 this.source.srcset = responseJson.avatar_url;
                 this.img.src = responseJson.avatar_url;
@@ -23,6 +25,12 @@ export default class App {
                 this.follower.innerHTML = responseJson.followers;
                 this.repo.innerHTML = responseJson.public_repos;
                 this.job.innerHTML = responseJson.bio;
+                
+                this.button.disabled = false;
+
+                this.button.addEventListener("click", () => {
+                    window.location.href=`https://github.com/${responseJson.login}`;
+                })
             } 
         } catch(error){
             console.log(error)
