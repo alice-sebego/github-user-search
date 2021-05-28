@@ -7,6 +7,10 @@
     font-family: 'PT Sans', sans-serif;
 }
 
+.loading{
+    animation-play-state: paused !important;
+}
+
 header{
     text-align: center;
     padding: 2vh 4vw;

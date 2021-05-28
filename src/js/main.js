@@ -17,6 +17,9 @@ const $year = document.querySelector("#year");
 
 const url = `https://api.github.com/users/`;
 
+// Manage body's loading
+window.addEventListener("load", () => document.body.classList.remove("loading"));
+
 // Listening user's input
 $input.addEventListener("input", () =>{
     
