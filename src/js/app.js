@@ -1,7 +1,8 @@
 export default class App {
 
-    constructor(input, source, img, name, follower, repo, job, button, url){
+    constructor(input, form, source, img, name, follower, repo, job, button, url){
         this.input = input;
+        this.form = form;
         this.source = source;
         this.img = img;
         this.name = name;
@@ -33,7 +34,12 @@ export default class App {
                 })
             } 
         } catch(error){
-            console.log(error)
+            //console.log(error)
+            const msgError = document.createElement("p");
+            msgError.classList.add("error");
+            msgError.innerHTML = `Dsl <i class="far fa-frown"></i> , une erreur s'est produite <br>${error}`;
+            this.form.appendChild(msgError);
+
         }
     }
   
