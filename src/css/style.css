@@ -41,6 +41,8 @@ input{
     display: flex;
     flex-direction: column;
     border-radius: .3em 0 .3em 0;
+    font-size: 1em;
+    line-height: 1.5em;
 }
 
 picture{
@@ -61,6 +63,15 @@ img{
     box-shadow: .1em .1em .4em rgba(0, 0, 0, 0.4);
 }
 
+h2{
+    text-align: center;
+    line-height: 2em;
+}
+
+.bold{
+    font-weight: 600;
+}
+
 #card > button{
     margin: 2em 0;
     padding: 1em;
@@ -70,6 +81,7 @@ img{
     color: white;
     text-transform: uppercase;
     font-size: 1em;
+    letter-spacing: .06em;
     cursor: pointer;
     transition: all 1s;
 }
@@ -98,5 +110,46 @@ footer a{
 footer a:hover{
     text-decoration: underline;
 }
+
+/* Manage responsive display */
+
+@media screen and (max-width: 640px){
+    
+    section, form{
+        width: 80%;
+    }
+
+    label{
+        font-size: 1em;
+    }
+
+    img{
+        margin: -9vh auto 1vh;
+        width: 45%;
+    }
+
+}
+
+@media screen and (max-width: 375px){
+    
+    header{
+        font-size: 3vw;
+    }
+
+    form{
+        width: 95%;
+    }
+
+    label{
+        line-height: 1.5em;
+    }
+
+    img{
+        margin: -9vh auto 1vh;
+        width: 55%;
+    }
+
+}
+
 
 
