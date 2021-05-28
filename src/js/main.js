@@ -12,12 +12,38 @@ const $follower = document.querySelector("#follower");
 const $repo = document.querySelector("#repository");
 const $job = document.querySelector("#job");
 const $button = document.querySelector("#card > button");
+const $toogleMode = document.querySelector("#toggle-mode-display > button");
 const $year = document.querySelector("#year");
 
 const url = `https://api.github.com/users/`;
 
 // Manage body's loading
 window.addEventListener("load", () => document.body.classList.remove("loading"));
+
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme == "dark") {
+  document.body.classList.toggle("dark-theme");
+} else if (currentTheme == "light") {
+  document.body.classList.toggle("light-theme");
+}
+
+$toogleMode.addEventListener("click", function () {
+    let theme;
+    if (prefersDarkScheme.matches) {
+    document.body.classList.toggle("light-theme");
+    theme = document.body.classList.contains("light-theme")
+      ? "light"
+      : "dark";
+  } else {
+    document.body.classList.toggle("dark-theme");
+    theme = document.body.classList.contains("dark-theme")
+      ? "dark"
+      : "light";
+  }
+  localStorage.setItem("theme", theme);
+});
 
 // Listening user's input
 $input.addEventListener("input", () =>{

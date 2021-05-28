@@ -7,10 +7,52 @@
     font-family: 'PT Sans', sans-serif;
 }
 
+/* Manage CSS animations when DOM is loading */
 .loading{
     animation-play-state: paused !important;
 }
 
+/* Manage switch between dark and light mode */
+body{
+    --text-color: #333;
+    --bkg-color: #fff;
+}
+
+
+body.dark-theme{
+    --text-color: #eee;
+    --bkg-color: #121212;
+}
+  
+@media (prefers-color-scheme: dark) {
+    /* defaults to dark theme */
+    body{
+    --text-color: #eee;
+    --bkg-color: #121212;
+    }
+
+    body.light-theme{
+    --text-color: #333;
+    --bkg-color: #fff;
+    }
+
+}
+
+body{
+background: var(--bkg-color);
+}
+  
+h1, h2, p, label, footer a{
+color: var(--text-color);
+}
+
+#toggle-mode-display{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+/* INTERFACE'S USER */
 header{
     text-align: center;
     padding: 2vh 4vw;
@@ -51,6 +93,7 @@ form{
 input{
     width: 100%;
     border: 1px solid #bbb;
+    margin-top: 1vh;
     padding: .5em;
     border-radius: .5em;
 }
@@ -58,7 +101,6 @@ input{
 #card{
     margin-top: 10vh;
     padding: 5vh 4vw;
-    background-color: #eee;
     display: flex;
     flex-direction: column;
     border-radius: .3em 0 .3em 0;
@@ -66,6 +108,7 @@ input{
     line-height: 1.5em;
     opacity: 0;
     animation: displaying 0.4s 1.2s ease-out forwards;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 picture{
@@ -80,7 +123,6 @@ hr{
 img{
     display: block;
     margin: -8vh auto 1vh;
-    border: 1px solid #bbb;
     width: 35%;
     border-radius: 50%;
     box-shadow: .1em .1em .4em rgba(0, 0, 0, 0.4);
@@ -100,17 +142,18 @@ h2{
     padding: 1em;
     border: none;
     border-radius: .4em;
-    background-color: #aaa;
-    color: white;
     text-transform: uppercase;
     font-size: 1em;
     letter-spacing: .06em;
+    color:#333;
+    background-color: #eee;
     cursor: pointer;
     transition: all 1s;
 }
 
 #card > button:hover{
     border-radius: .2em;
+    color:#eee;
     background-color: #333;
 }
 
@@ -125,7 +168,6 @@ footer{
 }
 
 footer a{
-    color: #333;
     font-weight: 600;
     text-decoration: none;
 }
@@ -134,8 +176,7 @@ footer a:hover{
     text-decoration: underline;
 }
 
-/* Animations */
-
+/* ANIMATIONS */
 @keyframes displaying{
     100%{
         opacity: 1;
@@ -143,8 +184,7 @@ footer a:hover{
     }
 }
 
-/* Manage responsive display */
-
+/* MANAGE RESPONSIVE DISPLAY */
 @media screen and (max-width: 640px){
     
     section, form{
@@ -182,6 +222,3 @@ footer a:hover{
     }
 
 }
-
-
-
