@@ -48,9 +48,16 @@ color: var(--text-color);
 
 #toggle-mode-display{
     position: fixed;
-    bottom: 0;
-    right: 0;
+    bottom: 0.8em;
+    right: 0.8em;
 }
+
+#toogle-mode-display > button{
+    border: none;
+    box-shadow: 0.1em 0.1em 0.2em rgb(0 0 0 / 40%);
+    padding: 0.5em;
+}
+
 
 /* INTERFACE'S USER */
 header{
@@ -164,7 +171,7 @@ footer{
     text-align: center;
     line-height: 1.8em;
     color: #333;
-    box-shadow: -.1em 0 .8em rgba(0, 0, 0, 0.2);
+    box-shadow: -.1em 0 .8em rgba(0, 0, 0, 0.3);
 }
 
 footer a{
