@@ -5,12 +5,7 @@ import * as util from './util.js';
 // Elements of DOM
 const $input = document.querySelector("input");
 const $form = document.querySelector("form");
-const $source = document.querySelector("source");
-const $img = document.querySelector("img");
-const $h2 = document.querySelector("h2");
-const $follower = document.querySelector("#follower");
-const $repo = document.querySelector("#repository");
-const $job = document.querySelector("#job");
+const $displayResult = document.querySelector("#display-result");
 const $button = document.querySelector("#card > button");
 const $toogleMode = document.querySelector("#toggle-mode-display > button");
 const $year = document.querySelector("#year");
@@ -29,11 +24,16 @@ $input.addEventListener("input", () =>{
     
     if(regexUsername.test($input.value)){
     
-        const searchUser = new App($input, $form, $source, $img, $h2, $follower, $repo, $job, $button, url);
+        const searchUser = new App($input, $form, $displayResult, url);
         searchUser.ajax();
+
+        // $button.addEventListener("click", () => {
+        //     window.location.href=`https://github.com/${$input.value}`;
+        // });
         
     }
 });
 
 // Display Year on the footer
 util.getYear($year);
+

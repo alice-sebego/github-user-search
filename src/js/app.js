@@ -1,15 +1,9 @@
 export default class App {
 
-    constructor(input, form, source, img, name, follower, repo, job, button, url){
+    constructor(input, form, result, url){
         this.input = input;
         this.form = form;
-        this.source = source;
-        this.img = img;
-        this.name = name;
-        this.follower = follower;
-        this.repo = repo;
-        this.job = job;
-        this.button = button;
+        this.result = result;
         this.url = url;
     }
 
@@ -19,19 +13,8 @@ export default class App {
             if(response.ok){
                 let responseJson = await response.json();
                 
-                this.name.innerHTML = responseJson.name;
-                this.source.srcset = responseJson.avatar_url;
-                this.img.src = responseJson.avatar_url;
-                this.img.setAttribute("alt", responseJson.name);
-                this.follower.innerHTML = responseJson.followers;
-                this.repo.innerHTML = responseJson.public_repos;
-                this.job.innerHTML = responseJson.bio;
-                
-                this.button.disabled = false;
+                this.createCard(responseJson);
 
-                this.button.addEventListener("click", () => {
-                    window.location.href=`https://github.com/${responseJson.login}`;
-                })
             } 
         } catch(error){
             //console.log(error)
@@ -41,6 +24,26 @@ export default class App {
             this.form.appendChild(msgError);
 
         }
+    }
+
+    createCard(data){
+        const defaultVar = "NC";
+        const card = `
+        <div id="card">
+            <picture>
+                    <source srcset="${data.avatar_url}">
+                    <img src="${data.avatar_url}" alt=${data.name}>
+            </picture>
+            <hr>
+            <h2>${data.name ? data.name : defaultVar}</h2>
+            <p><span class="bold">Followers</span> : <span id="follower">${data.followers ? data.followers : defaultVar}</span></p>
+            <p><span class="bold">Repos</span> : <span id="repository">${data.public_repos ? data.public_repos : defaultVar}</span></p>
+            <p><span id="job">${data.bio ? data.bio : defaultVar}</span></p>
+            <button type="button" class="bold" disabled>Aller sur le profil</button>
+        </div>
+        `;
+
+        this.result.innerHTML = card;
     }
   
 }
