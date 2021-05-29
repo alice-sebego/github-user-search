@@ -46,19 +46,6 @@ h1, h2, p, label, footer a{
 color: var(--text-color);
 }
 
-#toggle-mode-display{
-    position: fixed;
-    bottom: 0.8em;
-    right: 0.8em;
-}
-
-#toogle-mode-display > button{
-    border: none;
-    box-shadow: 0.1em 0.1em 0.2em rgb(0 0 0 / 40%);
-    padding: 0.5em;
-}
-
-
 /* INTERFACE'S USER */
 header{
     text-align: center;
@@ -165,6 +152,19 @@ h2{
     color:#eee;
     background-color: #333;
 }
+
+#toggle-mode-display{
+    position: fixed;
+    bottom: 0.8em;
+    right: 0.8em;
+}
+
+#toogle-mode-display > button{
+    border: none;
+    box-shadow: 0.1em 0.1em 0.2em rgb(0 0 0 / 40%);
+    padding: 0.5em;
+}
+
 
 footer{
     padding: 4vh 3vw;
