@@ -6,7 +6,6 @@ import * as util from './util.js';
 const $input = document.querySelector("input");
 const $form = document.querySelector("form");
 const $displayResult = document.querySelector("#display-result");
-const $button = document.querySelector("#card > button");
 const $toogleMode = document.querySelector("#toggle-mode-display > button");
 const $year = document.querySelector("#year");
 
@@ -20,16 +19,11 @@ window.addEventListener("load", () => document.body.classList.remove("loading"))
 util.handleMode(window, localStorage, document.body, $toogleMode);
 
 // Listening user's input
-$input.addEventListener("input", () =>{
-    
+$input.addEventListener("input", () => {  
     if(regexUsername.test($input.value)){
     
         const searchUser = new App($input, $form, $displayResult, url);
         searchUser.ajax();
-
-        // $button.addEventListener("click", () => {
-        //     window.location.href=`https://github.com/${$input.value}`;
-        // });
         
     }
 });

@@ -131,14 +131,15 @@ h2{
     font-weight: 600;
 }
 
-#card > button,
-#card > button:disabled{
+#card > a{
     margin: 2em 0;
     padding: 1em;
     border: none;
     border-radius: .4em;
     text-transform: uppercase;
+    text-decoration: none;
     font-size: 1em;
+    text-align: center;
     letter-spacing: .06em;
     color:#333;
     background-color: #eee;
@@ -147,7 +148,7 @@ h2{
 }
 
 
-#card > button:hover{
+#card > a:hover{
     border-radius: .2em;
     color:#eee;
     background-color: #333;

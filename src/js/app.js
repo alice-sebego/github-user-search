@@ -10,7 +10,9 @@ export default class App {
     async ajax(){
         try{
             const response = await fetch(this.url + this.input.value);
+            
             if(response.ok){
+
                 let responseJson = await response.json();
                 
                 this.createCard(responseJson);
@@ -27,19 +29,21 @@ export default class App {
     }
 
     createCard(data){
+        
         const defaultVar = "NC";
+        
         const card = `
         <div id="card">
             <picture>
-                    <source srcset="${data.avatar_url}">
-                    <img src="${data.avatar_url}" alt=${data.name}>
+                <source srcset="${data.avatar_url}">
+                <img src="${data.avatar_url}" alt=${data.name}>
             </picture>
             <hr>
             <h2>${data.name ? data.name : defaultVar}</h2>
             <p><span class="bold">Followers</span> : <span id="follower">${data.followers ? data.followers : defaultVar}</span></p>
             <p><span class="bold">Repos</span> : <span id="repository">${data.public_repos ? data.public_repos : defaultVar}</span></p>
             <p><span id="job">${data.bio ? data.bio : defaultVar}</span></p>
-            <button type="button" class="bold" disabled>Aller sur le profil</button>
+            <a href="https://github.com/${data.login}" target="_blank" class="bold">Aller sur le profil</a>
         </div>
         `;
 
