@@ -24,6 +24,9 @@ export default class App {
             msgError.classList.add("error");
             msgError.innerHTML = `Dsl <i class="far fa-frown"></i> , une erreur s'est produite <br>${error}`;
             this.form.appendChild(msgError);
+            setTimeout(()=>{
+                msgError.remove();
+            }, 4500);
 
         }
     }
@@ -43,7 +46,7 @@ export default class App {
             <p><span class="bold">Followers</span> : <span id="follower">${data.followers ? data.followers : defaultVar}</span></p>
             <p><span class="bold">Repos</span> : <span id="repository">${data.public_repos ? data.public_repos : defaultVar}</span></p>
             <p><span id="job">${data.bio ? data.bio : defaultVar}</span></p>
-            <a href="https://github.com/${data.login}" target="_blank" class="bold">Aller sur le profil</a>
+            <a href="https://github.com/${data.login}" title="Visiter le profil de ${data.name}" target="_blank" class="bold">Aller sur le profil</a>
         </div>
         `;
 
