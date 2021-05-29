@@ -15,6 +15,7 @@ const $button = document.querySelector("#card > button");
 const $toogleMode = document.querySelector("#toggle-mode-display > button");
 const $year = document.querySelector("#year");
 
+const regexUsername = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
 const url = `https://api.github.com/users/`;
 
 // Manage body's loading
@@ -26,8 +27,8 @@ util.handleMode(window, localStorage, document.body, $toogleMode);
 // Listening user's input
 $input.addEventListener("input", () =>{
     
-    if($input.value !== ""){
-
+    if(regexUsername.test($input.value)){
+    
         const searchUser = new App($input, $form, $source, $img, $h2, $follower, $repo, $job, $button, url);
         searchUser.ajax();
         
